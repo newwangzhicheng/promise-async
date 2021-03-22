@@ -1,0 +1,20 @@
+{
+  "name": "promise-async",
+  "version": "1.0.0",
+  "description": "promise和async的手动实现",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/newwangzhicheng/promise-async.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/newwangzhicheng/promise-async/issues"
+  },
+  "homepage": "https://github.com/newwangzhicheng/promise-async#readme"
+}
