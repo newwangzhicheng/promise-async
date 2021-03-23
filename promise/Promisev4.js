@@ -150,12 +150,18 @@ Promisev4.prototype.then = function (onFullfilled, onRejected) {
   return promise;
 };
 
-// const v4 = new Promisev4((resolve) => {
-//   resolve(1);
-// });
-// v4.then((e) => {
-//   console.log(`e`, e)
-// })
+const v4 = new Promisev4((resolve) => {
+  resolve(1);
+});
+v4.then((e) => {
+  console.log(`e`, e);
+}).then(() => {
+  return new Promise((resolve) => {
+    resolve(2);
+  });
+}).then((e2) => {
+  console.log(`e2`, e2);
+})
 
 Promisev4.deferred = function () {
   var result = {};
