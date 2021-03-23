@@ -16,5 +16,8 @@
   "bugs": {
     "url": "https://github.com/newwangzhicheng/promise-async/issues"
   },
-  "homepage": "https://github.com/newwangzhicheng/promise-async#readme"
+  "homepage": "https://github.com/newwangzhicheng/promise-async#readme",
+  "devDependencies": {
+    "promises-aplus-tests": "^2.1.2"
+  }
 }
