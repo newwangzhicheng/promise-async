@@ -10,6 +10,8 @@
  * 
  * * 在原型上实现一个then方法
  * * then里面根据目前状态执行onFullfilled或onRejected函数
+ * 
+ * * 缺陷 无法处理异步的resolve
  */
 function Promisev1(constructor) {
   const self = this;
