@@ -4,6 +4,8 @@
  * * then中执行onFullfilled的时候要获取返回值value并传递给新的promise的resolve
  * * then中执行onRejected的时候要获取原因reason并传递给新的promise的reject
  * * 执行到新promise的resolve和reject的时候要有try catch做错误处理
+ * 
+ * * 缺陷：then无法返回promise
  */
 
 function Promisev3(constructor) {
@@ -22,9 +24,9 @@ function Promisev3(constructor) {
 
   function resolve(value) {
     if (self.status === 'pending') {
-      self.status = 'resolved';
+       self.status = 'resolved';
       self.value = value;
-      onFullfilledArray.forEach((fn) => {
+      self.onFullfilledArray.forEach((fn) => {
         fn(self.value);
       });
     }
@@ -34,7 +36,7 @@ function Promisev3(constructor) {
     if (self.status === 'pending') {
       self.status = 'rejected';
       self.reason = reason;
-      onRejectedArray.forEach((fn) => {
+      self.onRejectedArray.forEach((fn) => {
         fn(reason);
       });
     }
@@ -90,16 +92,21 @@ Promisev3.prototype.then = function(onFullfilled, onRejected) {
   return promise;
 }
 
-const v3 = new Promise((resolve, reject) => {
+const v3 = new Promisev3((resolve, reject) => {
   resolve(1);
 });
 
 v3.then((e1) => {
   console.log('e1 :>> ', e1);
-  return { i: 2 };
+  return new Promise((resolve) => {
+    resolve(9);
+  });
 }).then((e2) => {
   console.log('e2 :>> ', e2);
   return 4;
 }).then((e3) => {
   console.log('e3 :>> ', e3);
+  return 8;
+}).then(16).then(32).then((e4) => {
+  console.log(`e4`, e4)
 });

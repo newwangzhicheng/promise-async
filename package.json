@@ -4,7 +4,7 @@
   "description": "promise和async的手动实现",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "promises-aplus-tests ./promise/Promisev4.js"
   },
   "repository": {
     "type": "git",
