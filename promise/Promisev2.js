@@ -6,6 +6,8 @@
  * * 在then阶段收集还处于pending状态的onFullfilled，onRejected函数
  * * 在resolve阶段改变状态并执行onFullfilledArry数组内的方法
  * * 在reject阶段改变状态并执行onRejectedArray数组内的方法
+ * 
+ * * 缺陷是无法实现链式调用
  */
 
 function Promisev2(constructor) {
